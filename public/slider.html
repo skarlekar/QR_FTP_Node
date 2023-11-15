@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Code Stream</title>
+    <style>
+        .slider-container {
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="qrCodeContainer" style="text-align:center;">
+        <img id="qrCodeImage" src="/image" alt="QR Code" width="500">
+    </div>
+    <div class="slider-container">
+        <label for="intervalSlider">Adjust Interval (milliseconds): </label>
+        <input type="range" id="intervalSlider" min="100" max="2000" value="250">
+        <span id="currentInterval">250</span>
+    </div>
+    <script>
+        const qrCodeImage = document.getElementById('qrCodeImage');
+        const intervalSlider = document.getElementById('intervalSlider');
+        const currentInterval = document.getElementById('currentInterval');
+        let intervalTime = parseInt(intervalSlider.value);
+
+        intervalSlider.oninput = function() {
+            currentInterval.innerHTML = this.value;
+            intervalTime = parseInt(this.value);
+            clearInterval(interval);
+            interval = setInterval(() => {
+                qrCodeImage.src = '/image?' + new Date().getTime();
+            }, intervalTime);
+        }
+
+        let interval = setInterval(() => {
+            qrCodeImage.src = '/image?' + new Date().getTime();
+        }, intervalTime);
+    </script>
+</body>
+</html>

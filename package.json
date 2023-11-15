@@ -1,0 +1,17 @@
+{
+    "name": "binary-to-qr-code",
+    "version": "1.0.0",
+    "description": "A Node.js application to convert binary files into QR codes",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "dependencies": {
+        "qrcode": "^1.5.3",
+        "canvas": "^2.11.2",
+        "express": "^4.18.2"
+      },
+    "author": "Srini Karlekar",
+    "license": "ISC"
+  }
+  

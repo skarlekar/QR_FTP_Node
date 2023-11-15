@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Image Display</title>
+    <style>
+        #imageContainer {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="imageContainer">
+        <img id="displayedImage" src="/image" alt="Display Image" width="500">
+    </div>
+    <script>
+        const displayedImage = document.getElementById('displayedImage');
+
+        setInterval(() => {
+            // Add a timestamp to the URL to prevent caching
+            displayedImage.src = '/image?' + new Date().getTime();
+            //displayedImage.src = '/image?' ;
+        }, 250); // Request new image every 10 seconds
+    </script>
+</body>
+</html>
